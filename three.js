@@ -6,7 +6,6 @@ let material;
 let mesh;
 
 function init() {
-  
   camera = new THREE.PerspectiveCamera(
     50,
     window.innerWidth / innerHeight,
@@ -14,15 +13,24 @@ function init() {
     1500
   );
   camera.position.set(0, 0, 300);
-  
+
   scene = new THREE.Scene();
   scene.add(camera);
 
+  // iconsahedro
   geometry = new THREE.IcosahedronGeometry(100, 3);
+  // cilinder
+  geometry = new THREE.CylinderGeometry(
+    (radiusTop = 50),
+    (radiusBottom = 100),
+    (height = 300),
+    (radiusSegments = 9),
+    (heightSegments = 9)
+  );
 
   material = new THREE.MeshNormalMaterial({
     color: "red",
-    wireframe: false,
+    wireframe: true,
     wireframeLineWidth: 4,
   });
 
